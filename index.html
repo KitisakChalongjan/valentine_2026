@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #ffebee; font-family: 'Arial', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .heart { position: absolute; color: #ff4081; font-size: 20px; pointer-events: none; animation: fall linear infinite; }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+        .content { text-align: center; z-index: 10; background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        button { background: #ff4081; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+        button:hover { transform: scale(1.1); background: #f50057; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Happy Valentine's Day! 💖</h1>
+        <p>มีอะไรจะบอก... กดปุ่มข้างล่างดิ</p>
+        <button onclick="alert('รักนะจ๊ะเจ้าเด็กดื้อ! อย่าลืมส่งโค้ดมาให้ตรวจด้วยนะ')">คลิกสิ!</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
